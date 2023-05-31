@@ -138,8 +138,8 @@ class DeltaIterableDataset(IterableDataset):
                 item = self.queue.get(block=True, timeout=self.timeout)
                 yield item
                 i += 1
-                # if i >= self.end:
-                #    return
+                if i >= self.end:
+                    return
             except Empty:
                 print("empty ", i)
                 return
