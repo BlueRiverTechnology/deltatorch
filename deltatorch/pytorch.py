@@ -19,6 +19,7 @@ def create_pytorch_dataloader(
     shuffle: bool = False,
     timeout: int = 15,
     queue_size: int = 25000,
+    **kwarg
 ):
     dataset = IDBasedDeltaDataset(
         path,
@@ -39,4 +40,5 @@ def create_pytorch_dataloader(
         shuffle=False,
         num_workers=0,
         collate_fn=collate_fn,
+    **kwarg
     )
