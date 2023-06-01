@@ -88,6 +88,8 @@ class IDBasedDeltaDataset(DeltaIterableDataset):
         arrow_fields: Dict,
         timeout,
     ):
+        start = int(start)
+        end = int(end)
         try:
             logger.debug(f"Started worker for path {path} and range: {start}-{end}")
             print(f"Started worker for path {path} and range: {start}-{end}")
