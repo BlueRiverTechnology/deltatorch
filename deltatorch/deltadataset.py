@@ -89,9 +89,7 @@ class DeltaIterableDataset(IterableDataset):
                 logger.debug(
                     f"Detected DDP process. Current rank: {self.rank} World size: {self.num_ranks}"
                 )
-                print(
-                    f"Detected DDP process. Current rank: {self.rank} World size: {self.num_ranks}"
-                )
+                # print(f"Detected DDP process. Current rank: {self.rank} World size: {self.num_ranks}")
                 new_start = int(self.rank * self.end / self.num_ranks)
                 new_end = int((self.rank + 1) * self.end / self.num_ranks)
                 self.start = new_start
@@ -99,9 +97,7 @@ class DeltaIterableDataset(IterableDataset):
                 logger.debug(
                     f"This rank will use the following set of rows: {self.start}-{self.end}"
                 )
-                print(
-                    f"This rank will use the following set of rows: {self.start}-{self.end}"
-                )
+                # print(f"This rank will use the following set of rows: {self.start}-{self.end}")
         else:
             self.num_ranks = 1
             self.rank = 1
@@ -138,7 +134,7 @@ class DeltaIterableDataset(IterableDataset):
         if self.loaded:
             self.stop()
         self.init_loading(self.path)
-        print(f"current rank = {self.rank}, and max element = {self.end}")
+        # print(f"current rank = {self.rank}, and max element = {self.end}")
         i = 0
         while True:
             try:
