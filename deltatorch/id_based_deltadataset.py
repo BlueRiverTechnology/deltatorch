@@ -90,6 +90,7 @@ class IDBasedDeltaDataset(DeltaIterableDataset):
     ):
         try:
             logger.debug(f"Started worker for path {path} and range: {start}-{end}")
+            print(f"Started worker for path {path} and range: {start}-{end}")
             # i = 0
             _filter = None
             if end > 0 and start >= 0:
