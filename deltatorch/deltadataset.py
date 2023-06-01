@@ -94,6 +94,9 @@ class DeltaIterableDataset(IterableDataset):
                 logger.debug(
                     "This rank will use the following set of rows: {self.start}-{self.end}"
                 )
+                print(
+                    "This rank will use the following set of rows: {self.start}-{self.end}"
+                )
                 self.start = new_start
                 self.end = new_end
         else:
