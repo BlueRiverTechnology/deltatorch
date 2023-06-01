@@ -94,14 +94,14 @@ class DeltaIterableDataset(IterableDataset):
                 )
                 new_start = self.rank * self.end / self.num_ranks
                 new_end = (self.rank + 1) * self.end / self.num_ranks
+                self.start = new_start
+                self.end = new_end
                 logger.debug(
-                    "This rank will use the following set of rows: {self.start}-{self.end}"
+                    f"This rank will use the following set of rows: {self.start}-{self.end}"
                 )
                 print(
                     f"This rank will use the following set of rows: {self.start}-{self.end}"
                 )
-                self.start = new_start
-                self.end = new_end
         else:
             self.num_ranks = 1
             self.rank = 1
