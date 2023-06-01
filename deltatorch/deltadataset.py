@@ -138,6 +138,7 @@ class DeltaIterableDataset(IterableDataset):
         if self.loaded:
             self.stop()
         self.init_loading(self.path)
+        print(f"current rank = {self.rank}, and max element = {self.end}")
         i = 0
         while True:
             try:
