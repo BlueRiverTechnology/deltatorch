@@ -92,8 +92,8 @@ class DeltaIterableDataset(IterableDataset):
                 print(
                     f"Detected DDP process. Current rank: {self.rank} World size: {self.num_ranks}"
                 )
-                new_start = self.rank * self.end / self.num_ranks
-                new_end = (self.rank + 1) * self.end / self.num_ranks
+                new_start = int(self.rank * self.end / self.num_ranks)
+                new_end = int((self.rank + 1) * self.end / self.num_ranks)
                 self.start = new_start
                 self.end = new_end
                 logger.debug(
